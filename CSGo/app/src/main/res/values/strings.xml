@@ -1,4 +1,118 @@
 <resources>
     <string name="app_name">CS:Go</string>
     <string name="title_activity_main_screen">Map</string>
+
+    <string name="java_question_1">An object is an implementation of a:</string>
+    <string name="java_question_1a">Method</string>
+    <string name="java_question_1b">Array</string>
+    <string name="java_question_1c">Class</string>
+    <string name="java_question_1d">Integer</string>
+    <string name="java_question_1_answer">Class</string>
+
+    <string name="java_question_2">A reference type that lays out abstract methods is called?</string>
+    <string name="java_question_2a">Interface</string>
+    <string name="java_question_2b">Method</string>
+    <string name="java_question_2c">Object</string>
+    <string name="java_question_2d">Stack</string>
+    <string name="java_question_2_answer">Method</string>
+
+    <string name="java_question_3">What runtime error do you get when you forget to initialize a variable?</string>
+    <string name="java_question_3a">ArrayIndexOutOfRange</string>
+    <string name="java_question_3b">IllegalFormatException</string>
+    <string name="java_question_3c">OutOfMemoryError</string>
+    <string name="java_question_3d">NullPointerException</string>
+    <string name="java_question_3_answer">NullPointerException</string>
+
+
+
+    <string name="python_question_1">Is Python case sensitive when dealing with identifiers?</string>
+    <string name="python_question_1a">Yes</string>
+    <string name="python_question_1b">No</string>
+    <string name="python_question_1c">Sometimes</string>
+    <string name="python_question_1d">None of the mentioned</string>
+    <string name="python_question_1_answer">Yes</string>
+
+    <string name="python_question_2">Which of the following statements create a dictionary?</string>
+    <string name="python_question_2a">d = {}</string>
+    <string name="python_question_2b">d = {“john”:40, “peter”:45}</string>
+    <string name="python_question_2c">d = {40:”john”, 45:”peter”}</string>
+    <string name="python_question_2d">d = (40:”john”, 45:”peter”)</string>
+    <string name="python_question_2_answer">d = (40:”john”, 45:”peter”)</string>
+
+    <string name="python_question_3">Which of the following returns a string that represents the present working directory?</string>
+    <string name="python_question_3a">os.getcwd()</string>
+    <string name="python_question_3b">os.cwd()</string>
+    <string name="python_question_3c">os.getpwd</string>
+    <string name="python_question_3d">os.pwd</string>
+    <string name="python_question_3_answer">os.getcwd()</string>
+
+
+
+    <string name="cplusplus_question_1">Where does the execution of the program starts?</string>
+    <string name="cplusplus_question_1a">user-defined function</string>
+    <string name="cplusplus_question_1b">main function</string>
+    <string name="cplusplus_question_1c">void function</string>
+    <string name="cplusplus_question_1d">none of the mentioned</string>
+    <string name="cplusplus_question_1_answer">main function</string>
+
+    <string name="cplusplus_question_2">Which of the following correctly declares an array?</string>
+    <string name="cplusplus_question_2a">int array[10];</string>
+    <string name="cplusplus_question_2b">int array;</string>
+    <string name="cplusplus_question_2c">array{10};</string>
+    <string name="cplusplus_question_2d">array array[10];</string>
+    <string name="cplusplus_question_2_answer">int array[10];</string>
+
+    <string name="cplusplus_question_3">What will happen when we move try block far away from catch block?</string>
+    <string name="cplusplus_question_3a">Increases the amount of code in cache</string>
+    <string name="cplusplus_question_3b">Don’t alter anything</string>
+    <string name="cplusplus_question_3c">None of the mentioned</string>
+    <string name="cplusplus_question_3d">Reduces the amount of code in cache</string>
+    <string name="cplusplus_question_3_answer">Reduces the amount of code in cache</string>
+
+
+
+    <string name="javascript_question_1">JavaScript Code can be called by using a:</string>
+    <string name="javascript_question_1a">RMI</string>
+    <string name="javascript_question_1b">Triggering Event</string>
+    <string name="javascript_question_1c">Preprocessor</string>
+    <string name="javascript_question_1d">Function/Method</string>
+    <string name="javascript_question_1_answer">Function/Method</string>
+
+    <string name="javascript_question_2">Why does JavaScript subset disallow == and !=?</string>
+    <string name="javascript_question_2a">It uses bitwise checking</string>
+    <string name="javascript_question_2b">It uses === and !== instead</string>
+    <string name="javascript_question_2c">It uses equals() and notequals() instead</string>
+    <string name="javascript_question_2d">None of the mentioned</string>
+    <string name="javascript_question_2_answer">It uses === and !== instead</string>
+
+    <string name="javascript_question_3">Where are memory leaks found?</string>
+    <string name="javascript_question_3a">Client side objects</string>
+    <string name="javascript_question_3b">Server side objects</string>
+    <string name="javascript_question_3c">Both a and b</string>
+    <string name="javascript_question_3d">None of the mentioned</string>
+    <string name="javascript_question_3_answer">Client side objects</string>
+
+
+
+    <string name="html_question_1">What is the significance of scripting?</string>
+    <string name="html_question_1a">Convenient</string>
+    <string name="html_question_1b">Dynamic</string>
+    <string name="html_question_1c">Reachable</string>
+    <string name="html_question_1d">All of the mentioned</string>
+    <string name="html_question_1_answer">Dynamic</string>
+
+    <string name="html_question_2">What is the reason for avoiding the attributes property in the HTML DOM?</string>
+    <string name="html_question_2a">Found unncessary</string>
+    <string name="html_question_2b">Attributes don’t have attributes</string>
+    <string name="html_question_2c">Both a and b</string>
+    <string name="html_question_2d">None of the mentioned</string>
+    <string name="html_question_2_answer">Attributes don’t have attributes</string>
+
+    <string name="html_question_3">Which object is the top of the hierarchy?</string>
+    <string name="html_question_3a">Window Object</string>
+    <string name="html_question_3b">Document Object</string>
+    <string name="html_question_3c">Form Object</string>
+    <string name="html_question_3d">Form Control Elements</string>
+    <string name="html_question_3_answer">Window Object</string>
+
 </resources>
