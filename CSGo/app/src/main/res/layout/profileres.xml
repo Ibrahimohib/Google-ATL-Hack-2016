@@ -44,7 +44,7 @@
             android:layout_marginBottom="50dp"
             android:layout_weight="0"
             android:id="@+id/maleIcon"
-            android:src="@drawable/maleicon"
+            android:src="@drawable/ajene"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -53,7 +53,7 @@
             android:layout_weight="1"
             android:layout_marginLeft="50dp"
             android:id="@+id/femaleIcon"
-            android:src="@drawable/femaleicon"
+            android:src="@drawable/carly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
