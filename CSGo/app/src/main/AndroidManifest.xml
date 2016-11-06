@@ -12,7 +12,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="CS:Go"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
@@ -26,17 +26,22 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyA6iOKRYinqoe82MZlElb5YqGSPIM6_XMA" />
+
+        <activity android:name=".MainScreen" />
 
         <activity
-            android:name=".MainScreen"
-            android:label="@string/title_activity_main_screen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".SignUp">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
+
+        <activity android:name=".Profile" />
+
+        <activity android:name=".Quiz" />
     </application>
 
 </manifest>

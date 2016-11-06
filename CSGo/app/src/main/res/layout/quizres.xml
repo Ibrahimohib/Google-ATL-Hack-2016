@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:src="@drawable/bckgrd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:text="Java: Level 1"
+        android:textSize="25sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/question"
+        android:text="Question"
+        android:textSize="25sp"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <RadioButton
+        android:onClick="checkAnswer"
+        android:id="@+id/answerA"
+        android:layout_below="@+id/question"
+        android:layout_marginTop="90dp"
+        android:layout_marginLeft="10dp"
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <RadioButton
+        android:onClick="checkAnswer"
+        android:id="@+id/answerB"
+        android:layout_below="@+id/answerA"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <RadioButton
+        android:onClick="checkAnswer"
+        android:id="@+id/answerC"
+        android:layout_below="@+id/answerB"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <RadioButton
+        android:onClick="checkAnswer"
+        android:id="@+id/answerD"
+        android:layout_below="@+id/answerC"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>
