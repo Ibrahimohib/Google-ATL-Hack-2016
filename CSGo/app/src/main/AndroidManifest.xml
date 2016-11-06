@@ -11,7 +11,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/app_logo"
         android:label="CS:Go"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -30,14 +30,16 @@
 
         <activity android:name=".MainScreen" />
 
-        <activity
-            android:name=".SignUp">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity
+            android:name=".SignUp"/>
+
 
         <activity android:name=".Profile" />
 
