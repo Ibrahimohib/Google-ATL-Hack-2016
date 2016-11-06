@@ -3,6 +3,7 @@ package edu.xula.atlhack.csgo;
 import android.*;
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -13,6 +14,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -35,9 +38,10 @@ public class MainScreen extends FragmentActivity implements OnMapReadyCallback {
     LocationManager locationManager;
 
     LocationListener locationListener;
+    private ImageView CSButton;
 
     private String[] challenges = {"Java", "C++", "HTML", "JavaScript", "Python"};
-    private int iterator = 0;
+    private int iterator = -1;
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -70,6 +74,13 @@ public class MainScreen extends FragmentActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        CSButton = (ImageView) findViewById(R.id.cslogo);
+        CSButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                skills(v);
+            }
+        });
     }
 
 
@@ -293,6 +304,11 @@ public class MainScreen extends FragmentActivity implements OnMapReadyCallback {
 
         }, 3000);
 
+    }
+
+    public void skills(View view){
+
+        startActivity(new Intent(MainScreen.this, SkillPage.class));
     }
 
 
