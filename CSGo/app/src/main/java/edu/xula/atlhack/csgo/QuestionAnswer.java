@@ -8,10 +8,10 @@ public class QuestionAnswer {
     String questionType;
     String question;
     String[] options;
-    int rightAns;
-    int userAns;
+    String rightAns;
+    String userAns;
 
-    public void QuestionAnswer(String qType, String q, String[] ops, int ans)
+    public QuestionAnswer(String qType, String q, String[] ops, String ans)
     {
         questionType = qType;
         question = q;
@@ -19,26 +19,26 @@ public class QuestionAnswer {
         rightAns= ans;
     }
 
-    public void getUserAnswer(int i)
-    {
-        userAns = i;
-    }
-
-    public String getAnswer()
-    {
-        return options[rightAns];
-    }
-
+//    public void getUserAnswer(int i)
+//    {
+//        userAns = i;
+//    }
+//
+//    public String getAnswer()
+//    {
+//        return rightAns;
+//    }
+//
     public String getOption(int i)
     {
         return options[i];
     }
-
-    public boolean isRight(int i)
-    {
-        if(options[rightAns] == options[userAns])
-            return true;
-        else
-            return false;
-    }
+//
+//    public boolean isRight(int i)
+//    {
+//        if(rightAns.equals(userAns))
+//            return true;
+//        else
+//            return false;
+//    }
 }
