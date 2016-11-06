@@ -2,7 +2,10 @@ package edu.xula.atlhack.csgo;
 
 import android.*;
 import android.Manifest;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -12,7 +15,16 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -25,6 +37,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class MainScreen extends FragmentActivity implements OnMapReadyCallback {
@@ -35,9 +49,18 @@ public class MainScreen extends FragmentActivity implements OnMapReadyCallback {
     LocationManager locationManager;
 
     LocationListener locationListener;
-
+    private ImageView CSButton;
+    private TextView quiz;
+    private RadioButton option1;
+    private RadioButton option2;
+    private RadioButton option3;
+    private RadioButton option4;
+    private Quiz qz;
     private String[] challenges = {"Java", "C++", "HTML", "JavaScript", "Python"};
-    private int iterator = 0;
+    private int iterator = -1;
+    Quiz Quiz = new Quiz();
+    private Map<Integer, QuestionAnswer> qaMap = new HashMap<>();
+    public boolean isRight;
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -70,6 +93,13 @@ public class MainScreen extends FragmentActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        CSButton = (ImageView) findViewById(R.id.cslogo);
+        CSButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                skills(v);
+            }
+        });
     }
 
 
@@ -265,23 +295,78 @@ public class MainScreen extends FragmentActivity implements OnMapReadyCallback {
 
                     mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener()
                     {
-
+                        Random rand = new Random();
                         @Override
                         public boolean onMarkerClick(Marker arg0) {
                             if(arg0.getTitle().equals("Java")) { // if marker source is clicked
-                                Toast.makeText(MainScreen.this, arg0.getTitle(), Toast.LENGTH_SHORT).show();// display toast
+                                //qz = new Quiz();
+                                QuestionAnswer java1 = new QuestionAnswer("Java: Level 1",getResources().getString(R.string.java_question_1),
+                                        getResources().getStringArray(R.array.java_question_1_options), getResources().getString(R.string.java_question_1_answer));
+                                QuestionAnswer java2 = new QuestionAnswer("Java: Level 2", getResources().getString(R.string.java_question_2),
+                                        getResources().getStringArray(R.array.java_question_2_options),getResources().getString(R.string.java_question_2_answer));
+                                QuestionAnswer java3 = new QuestionAnswer("Java: Level 3", getResources().getString(R.string.java_question_3),
+                                        getResources().getStringArray(R.array.java_question_3_options),getResources().getString(R.string.java_question_3_answer));
+                                qaMap.put(0, java1);
+                                qaMap.put(1, java2);
+                                qaMap.put(2, java3);
+                                int question = rand.nextInt(3);
+                                showDialog(qaMap.get(question));
                                 arg0.setVisible(false);
                             }else if(arg0.getTitle().equals("HTML")){
-                                Toast.makeText(MainScreen.this, arg0.getTitle(), Toast.LENGTH_SHORT).show();// display toast
+                                QuestionAnswer html1 = new QuestionAnswer("HTML: Level 1",getResources().getString(R.string.html_question_1),
+                                        getResources().getStringArray(R.array.html_question_1_options),getResources().getString(R.string.html_question_1_answer));
+                                QuestionAnswer html2 = new QuestionAnswer("HTML: Level 2",getResources().getString(R.string.html_question_2),
+                                        getResources().getStringArray(R.array.html_question_2_options),getResources().getString(R.string.html_question_2_answer));
+                                QuestionAnswer html3 = new QuestionAnswer("HTML: Level 3",getResources().getString(R.string.html_question_3),
+                                        getResources().getStringArray(R.array.html_question_3_options),getResources().getString(R.string.html_question_3_answer));
+
+                                qaMap.put(3, html1);
+                                qaMap.put(4, html2);
+                                qaMap.put(5, html3);
+                                int question = rand.nextInt(3) + 3;
+                                showDialog(qaMap.get(question));
                                 arg0.setVisible(false);
                             }else if(arg0.getTitle().equals("Python")){
-                                Toast.makeText(MainScreen.this, arg0.getTitle(), Toast.LENGTH_SHORT).show();// display toast
+                                QuestionAnswer python1 = new QuestionAnswer("Python: Level 1",getResources().getString(R.string.python_question_1),
+                                        getResources().getStringArray(R.array.python_question_1_options),getResources().getString(R.string.python_question_1_answer));
+                                QuestionAnswer python2 = new QuestionAnswer("Python: Level 2",getResources().getString(R.string.python_question_2),
+                                        getResources().getStringArray(R.array.python_question_1_options),getResources().getString(R.string.python_question_2_answer));
+                                QuestionAnswer python3 = new QuestionAnswer("Python: Level 3", getResources().getString(R.string.python_question_3),
+                                        getResources().getStringArray(R.array.python_question_1_options),getResources().getString(R.string.python_question_3_answer));
+
+
+                                qaMap.put(6, python1);
+                                qaMap.put(7, python2);
+                                qaMap.put(8, python3);
+                                int question = rand.nextInt(3) + 6;
+                                showDialog(qaMap.get(question));
                                 arg0.setVisible(false);
                             }else if(arg0.getTitle().equals("JavaScript")){
-                                Toast.makeText(MainScreen.this, arg0.getTitle(), Toast.LENGTH_SHORT).show();// display toast
+                                QuestionAnswer js1 = new QuestionAnswer("JavaScript: Level 1",getResources().getString(R.string.javascript_question_1),
+                                        getResources().getStringArray(R.array.javascript_question_1_options),getResources().getString(R.string.javascript_question_1_answer));
+                                QuestionAnswer js2 = new QuestionAnswer("JavaScript: Level 2",getResources().getString(R.string.javascript_question_2),
+                                        getResources().getStringArray(R.array.javascript_question_2_options),getResources().getString(R.string.javascript_question_2_answer));
+                                QuestionAnswer js3 = new QuestionAnswer("JavaScript: Level 3",getResources().getString(R.string.javascript_question_3),
+                                        getResources().getStringArray(R.array.javascript_question_3_options),getResources().getString(R.string.javascript_question_3_answer));
+
+                                qaMap.put(9, js1);
+                                qaMap.put(10, js2);
+                                qaMap.put(11, js3);
+                                int question = rand.nextInt(3) + 9;
+                                showDialog(qaMap.get(question));
                                 arg0.setVisible(false);
                             }else if(arg0.getTitle().equals("C++")){
-                                Toast.makeText(MainScreen.this, arg0.getTitle(), Toast.LENGTH_SHORT).show();// display toast
+                                QuestionAnswer c1 = new QuestionAnswer("C++: Level 1",getResources().getString(R.string.cplusplus_question_1),
+                                        getResources().getStringArray(R.array.cplusplus_question_1_options),getResources().getString(R.string.cplusplus_question_1_answer));
+                                QuestionAnswer c2 = new QuestionAnswer("C++: Level 2",getResources().getString(R.string.cplusplus_question_2),
+                                        getResources().getStringArray(R.array.cplusplus_question_2_options),getResources().getString(R.string.cplusplus_question_2_answer));
+                                QuestionAnswer c3 = new QuestionAnswer("C++: Level 3",getResources().getString(R.string.cplusplus_question_3),
+                                        getResources().getStringArray(R.array.cplusplus_question_3_options),getResources().getString(R.string.cplusplus_question_3_answer));
+                                qaMap.put(12, c1);
+                                qaMap.put(13, c2);
+                                qaMap.put(14, c3);
+                                int question = rand.nextInt(3) + 12;
+                                showDialog(qaMap.get(question));
                                 arg0.setVisible(false);
                             }
                             return true;
@@ -292,6 +377,41 @@ public class MainScreen extends FragmentActivity implements OnMapReadyCallback {
             }
 
         }, 3000);
+
+    }
+
+    public void skills(View view){
+
+        startActivity(new Intent(MainScreen.this, SkillPage.class));
+    }
+
+    public void showDialog(QuestionAnswer qa) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        //if(MainScreen.this != null){
+            QuizDialog newFragment = QuizDialog.newInstance(qa, this);
+            // The device is smaller, so show the fragment fullscreen
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            // For a little polish, specify a transition animation
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+            // To make it fullscreen, use the 'content' root view as the container
+            // for the fragment, which is always the root view for the activity
+            transaction.add(android.R.id.content, newFragment)
+                    .addToBackStack(null).commit();
+
+        //}
+
+
+
+
+
+    }
+
+    public void helloWorld(boolean isRight){
+        if(isRight){
+            Toast.makeText(MainScreen.this, "Answer correct!", Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(MainScreen.this, "Answer incorrect :(", Toast.LENGTH_LONG).show();
+        }
 
     }
 

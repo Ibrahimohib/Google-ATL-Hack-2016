@@ -16,7 +16,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:id="@+id/questionTitle"/>
 
     <TextView
         android:id="@+id/question"
@@ -28,7 +29,6 @@
         android:layout_height="wrap_content" />
 
     <RadioButton
-        android:onClick="checkAnswer"
         android:id="@+id/answerA"
         android:layout_below="@+id/question"
         android:layout_marginTop="90dp"
@@ -38,7 +38,6 @@
         android:layout_height="wrap_content" />
 
     <RadioButton
-        android:onClick="checkAnswer"
         android:id="@+id/answerB"
         android:layout_below="@+id/answerA"
         android:layout_marginLeft="10dp"
@@ -48,7 +47,6 @@
         android:layout_height="wrap_content" />
 
     <RadioButton
-        android:onClick="checkAnswer"
         android:id="@+id/answerC"
         android:layout_below="@+id/answerB"
         android:layout_marginLeft="10dp"
@@ -58,7 +56,6 @@
         android:layout_height="wrap_content" />
 
     <RadioButton
-        android:onClick="checkAnswer"
         android:id="@+id/answerD"
         android:layout_below="@+id/answerC"
         android:layout_marginLeft="10dp"
@@ -66,5 +63,13 @@
         android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:text="Submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/submit" />
 
 </RelativeLayout>
