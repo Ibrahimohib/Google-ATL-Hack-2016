@@ -17,6 +17,6 @@ public class Profile extends Activity{
     }
 
     public void startGame(View v) {
-        startActivity(new Intent(Profile.this, Profile.class));
+        startActivity(new Intent(Profile.this, MainScreen.class));
     }
 }
