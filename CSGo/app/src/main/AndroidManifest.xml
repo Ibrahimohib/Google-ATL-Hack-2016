@@ -28,15 +28,19 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA6iOKRYinqoe82MZlElb5YqGSPIM6_XMA" />
 
-        <activity android:name=".MainScreen" />
-
         <activity
-            android:name=".SignUp">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:name=".MainScreen"
+            android:label="@string/title_activity_main_screen"></activity>
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+        <activity android:name=".SkillPage"/>
+
+        <activity android:name=".SignUp">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".Profile" />
